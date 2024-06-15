@@ -1,0 +1,93 @@
+
+        body {
+            background-image: url("teamwork.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: black;
+            text-decoration: none;
+        }
+
+        header {
+            top: 0;
+        }
+
+        nav {
+            height: 80px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .bars {
+            padding: 2rem;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .textbox {
+            padding-top: 5vh;
+            text-align: center;
+            font-size: 60px;
+            font-weight: bolder;
+            margin-bottom: 2rem;
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            padding: 5px;
+            margin: 1rem;
+            flex: 1 0 30%;
+            min-width: 200px;
+        }
+
+        .image img {
+            display: block;
+            border: solid whitesmoke;
+            padding: 10px;
+            padding-top: 20px;
+            margin: 20px auto;
+            height: 40vh;
+            width: 25vw;
+            border-radius: 200px;
+            max-width: 100%;
+        }
+
+        .content {
+            font-weight: bolder;
+            padding-left: 20px;
+            font-size: larger;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 800px) {
+    .card {
+        flex-basis: 100%;
+    }
+    .image img {
+        width: 50%;
+        height: auto;
+    }
+    .content {
+        padding-left: 1rem;
+    }
+}

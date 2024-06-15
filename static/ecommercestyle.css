@@ -1,0 +1,175 @@
+ body {
+        background-image: url("pik.jpg");
+        background-repeat: no-repeat;
+        max-width: 100%; height: auto;
+    }
+ * {
+        margin: 0;
+        padding: 0;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: black;
+        text-decoration: none;
+    }
+   a{
+    color: black;
+   }
+    .nav {
+        padding: 2rem;
+        float: right;
+        font-size: 25px;
+        font-weight: bolder;
+    }
+    main {
+        margin: 12px 34px;
+        margin-bottom: 52px;
+        padding: 50px 23px;
+        padding-bottom: 52px;
+        margin-left: 0;
+    }
+
+    .bars {
+        padding: 2rem;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+
+    .main {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        padding: 50px 5px;
+        padding-left: 0px;
+        font-size: 60px;
+        font-weight: bolder;
+        max-width: 100%; height: auto;
+    }
+
+    .side {
+        padding-top: 0;
+        padding-left: 30px;
+        font-size: 30px;
+        font-weight: normal;
+    }
+
+    button {
+        font-weight: bold;
+        font-size: medium;
+        height: 45px;
+        width: 10%;
+        padding: 10px;
+        display: inline-block;
+        color: gray;
+        border: 2px solid #fafafa63;
+        border-radius: 20px;
+    }
+
+    .email {
+        padding-left: 3rem;
+        padding-top: 0;
+        font-size: 30px;
+        font-weight: bolder;
+    }
+
+    .bar {
+            width: 30%;
+            padding: 10px;
+            border: 3px solid #fafafaf0;
+            border-radius: 20px;
+            font-size: 17px;
+            height: 29px;
+            display: inline-block;
+            background-color: rgb(251, 205, 0);
+        }
+
+    .textbox {
+        padding-top: 50vh;
+        text-align: center;
+        font-size: 60px;
+        font-weight: bolder;
+    }
+
+    .text {
+        font-size: 30px;
+        font-weight: lighter;
+        color: gray;
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 1450px;
+    }
+
+    .image {
+        padding: 5px
+    }
+
+    .image img {
+        border: solid whitesmoke;
+        padding: 10px;
+        padding-top: 20px;
+        margin: 20px;
+        margin-top: 20px;
+        height: 400px;
+        width: 700px;
+        border-radius: 40px;
+    }
+
+    .content {
+        padding: 10px;
+        padding-top: 20px;
+        margin: 20px;
+        margin-top: 20px;
+        display: inline-block;
+        color: rgb(0, 0, 0);
+
+    }
+    p {
+        font-size: 25px;
+        color: gray;
+        line-height: 1.6;
+    }
+    .foot{
+        background-color: rgb(251, 205, 0);
+        padding-top: 50px;
+        margin-top: 50px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        height: 600px;
+        width: 1440px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    .last{
+        padding-top: 50px;
+        font-size: 70px;
+        font-weight: bolder;
+    }
+    .email1{
+        font-size: 30px;
+    }
+
+    footer{
+        padding: 25px 40px;
+        padding-top: 0;
+        text-align: center;
+        color: rgb(165, 163, 163);
+    }
+    @media only screen and (max-width: 800px) {
+        .image{
+            width: 100%;
+            height: auto;
+        }
+        .image img {
+            flex-wrap: wrap;
+            width: 100%;
+            height: auto;
+        }
+        .content {
+            padding-left: 1rem;
+        }
+    }

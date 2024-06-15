@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card</title>
+    <link rel="stylesheet" href="static/creditstyle.css">
+</head>
+<body>
+    <main>
+        <div class="boxes">
+            <div class="credit">Credit Card Fraud Detector</div>
+            <form action="/credit_predict" method="post">
+               <label for="details">Enter your details here: -</label>
+               <textarea name="card_content" id="card_content" cols="30" rows="10" required></textarea>
+               <input type="submit" value="Predict">
+            </form>
+             {% if credit_prediction %}
+                <p><strong>It is a {{ credit_prediction }}</strong>.</p>
+            {% elif error %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>

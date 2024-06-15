@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Spam Filtering</title>
+    <link rel="stylesheet" href="static/emailstyle.css">
+</head>
+
+<body>
+    <main>
+        <div class="boxes">
+            <div class="credit">Email Spam Filtering</div>
+            <form action="/emailpredict" method="post">
+               <label for="details">Enter your email here: -</label>
+               <textarea name="email_content" id="email_content" cols="30" rows="10" required></textarea>
+               <input type="submit" value="Predict">
+            </form>
+             {% if spam_prediction %}
+                <p>This email is <strong>{{ spam_prediction }}</strong>.</p>
+            {% elif error %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
