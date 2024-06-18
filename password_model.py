@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer
@@ -22,7 +22,6 @@ columns_to_remove = ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Un
 # Remove the specified columns
 data = data.drop(columns=columns_to_remove, errors='ignore')
 
-data.head()
 
 data.shape
 
@@ -35,7 +34,6 @@ data["strength"].unique()
 2 means->the password strenght is strong
 """
 
-data.info()
 
 data = data.dropna().sample(frac=1).reset_index(drop=True)  # Remove null values and shuffle the data
 
@@ -48,7 +46,6 @@ data.duplicated().sum()
 
 data.isnull().any()
 
-data.head()
 
 # count of strengths or class value to be predicted
 data['strength'].value_counts()
@@ -103,28 +100,28 @@ y_pred = dt_clf.predict(X_test)
 
 from sklearn.metrics import accuracy_score
 
-print('Accuracy (Decision Tree):', accuracy_score(y_test, y_pred))
+# print('Accuracy (Decision Tree):', accuracy_score(y_test, y_pred))
 
 import pickle
 
 pickle.dump(vectorizer, open("tfidf_password_strength.pickle", "wb"))
 pickle.dump(dt_clf, open("final_model.pickle", "wb"))
 
-with open("tfidf_password_strength.pickle", 'rb') as file:
-    saved_vectorizer = pickle.load(file)  # Load the vectorizer from the pickle file
+# with open("tfidf_password_strength.pickle", 'rb') as file:
+#     saved_vectorizer = pickle.load(file)  # Load the vectorizer from the pickle file
 
-with open("final_model.pickle", 'rb') as file:
-    final_model = pickle.load(file)
+# with open("final_model.pickle", 'rb') as file:
+#     final_model = pickle.load(file)
 
 
 def test_password_strength(password, vectorizer, model):
     X_password = np.array([password])  # Convert the password to a numpy array
     X_predict = vectorizer.transform(X_password)  # Transform the password using the loaded vectorizer
     y_pred = model.predict(X_predict)  # Predict the password strength using the loaded model
-    return y_pred
+    return y_pred[0]  # Return the predicted password strength
 
 
-# Print the first password and its predicted strength
-password1 = 'abc123'
-strength1 = test_password_strength(password1, saved_vectorizer, final_model)
-print(f'Password: {password1}, Strength: {strength1}')
+# # Print the first password and its predicted strength
+# password1 = 'abc123'
+# strength1 = test_password_strength(password1, saved_vectorizer, final_model)
+# print(f'Password: {password1}, Strength: {strength1}')

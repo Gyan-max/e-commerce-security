@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request
-from functions import (load_model, predict_spam, load_credit_model, predict_credit,
-                       load_password_model, check_password_strength)
-
+from flask import Flask, render_template, request,url_for
+from functions import (load_model, predict_spam, load_credit_model, predict_credit,load_passmodel, check_password_strength, word_divide_char)
+from functions import load_vectorizer   
 
 app = Flask(__name__)
 
@@ -59,26 +58,26 @@ def password():
     return render_template("password.html", spam_prediction=None, error=None)
 
 
-@app.route("/password_predict", methods=["POST"])
-def password_predict():
+@app.route("/password_predict", methods=['GET', 'POST'])
+def passwordpredict():
     if request.method == "POST":
-        password_content = request.form["password_content"]
+        exampleInputpassword1 = request.form["password"]
+    else:
+        return render_template("password.html")
 
-        try:
-            final_model, saved_vectorizer = load_password_model()
-            password_prediction = check_password_strength(password_content, final_model, saved_vectorizer)
-            strength_levels = {
-                0: "Very Weak Password",
-                1: "Average Password",
-                2: "Strong Password"
-            }
-            strength = strength_levels.get(password_prediction, "Error: Unexpected prediction result")
+    saved_vectorizer = load_vectorizer()
+    final_model = load_passmodel()
 
-            return render_template("password.html", strength=strength, error=None)
-
-        except Exception as e:
-            error = f"An error occurred: {str(e)}"
-            return render_template("password.html", strength=None, error=error)
+    password_prediction = check_password_strength(exampleInputpassword1, saved_vectorizer, final_model)
+    if(password_prediction==0):
+        return render_template("password.html", strength="Very Weak Password", error=None)
+    elif(password_prediction==1):
+        return render_template("password.html", strength="Average Password", error=None)
+    elif(password_prediction==2):
+        return render_template("password.html", strength="Strong Password", error=None)      
+    
+    
+ 
 
 
 if __name__ == "__main__":
